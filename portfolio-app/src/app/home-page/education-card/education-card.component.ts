@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Education } from '../core/portfolioObj.model';
+import { Education } from '../../core/portfolioObj.model';
 
 @Component({
   selector: 'education-card',

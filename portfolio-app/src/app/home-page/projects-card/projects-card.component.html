@@ -1,14 +1,12 @@
-<div class="project-content">
-
 
 <div class="skills-list-wrapper">
     <mat-chip-listbox
     class="skills-list"
     *ngFor="let enum of Skill | keyvalue">
-        <mat-chip-option (selectionChange)="OnChange($event)" color="accent" class="skills-chip">{{ enum.value }}</mat-chip-option>
+        <mat-chip-option (selectionChange)="OnChange($event)" color="accent" class="skills-chip" matTooltip="You have selected the maximum number of skills" [matTooltipDisabled]="selectedChips != 3">{{ enum.value }}</mat-chip-option>
     </mat-chip-listbox>
 </div>
-
+<div class="project-content">
 <div class="card-holder">
     <span *ngFor="let project of projects">
         <mat-card [id]="project.title" class="project-card">
@@ -25,14 +23,17 @@
                     <mat-chip class="chip">{{ skill }}</mat-chip>
                 </mat-chip-set>
             </div>
-             
-        
             <mat-card-content>
                 {{ project.description }}
             </mat-card-content>
             <mat-card-actions>
-                <button mat-raised-button color="primary"
-                [disabled]="!project.repoLink">GitHub</button>
+                <span [matTooltip]="!project.repoLink ? 'No Github link available for this project' : ''">
+                <button mat-raised-button 
+                color="primary"
+                [disabled]="!project.repoLink">
+                
+                    GitHub
+                </button></span>
                 <button class="arrow" mat-icon-button>
                     <mat-icon>arrow_forward</mat-icon>
                   </button>

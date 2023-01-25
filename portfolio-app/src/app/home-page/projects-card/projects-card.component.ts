@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { Project, Skill } from '../core/portfolioObj.model';
+import { Project, Skill } from '../../core/portfolioObj.model';
 
 @Component({
-  selector: 'projects-home-view',
-  templateUrl: './projects-home-view.component.html',
-  styleUrls: ['./projects-home-view.component.css']
+  selector: 'projects-card',
+  templateUrl: './projects-card.component.html',
+  styleUrls: ['./projects-card.component.css']
 })
-export class ProjectsHomeViewComponent {
+export class ProjectsCardComponent {
   public Skill = Skill;
+
+  selectedChips = 0;
+  maxSelectionReached = false;
+
 
   projects: Project[] = [{
     title: 'Traffic App',
@@ -36,18 +40,29 @@ export class ProjectsHomeViewComponent {
     skills: [Skill.CSS, Skill.HTML]
   }]
 
-  OnChange(event: any) {
-    for(let project of this.projects){
-      if (project.skills.includes(event.source.value as Skill)){
-        if(event.selected){
-          document.getElementById(project.title)!.classList.add("example-card-selected")
-        } else {
-          document.getElementById(project.title)!.classList.remove("example-card-selected")
-          document.getElementById(project.title)!.classList.add("example-card")
-        }
-        
-      }
-    }
+  constructor(){
   }
-}
+
+  
+
+  OnChange(event: any) {
+    event.selected ? this.selectedChips++ :  this.selectedChips--
+   
+    if(this.selectedChips >= 4){
+      event.source.deselect();
+    } else if (this.selectedChips <= 3){
+      for(let project of this.projects){
+        if (project.skills.includes(event.source.value as Skill)){
+          if(event.selected){
+            document.getElementById(project.title)!.classList.add("project-card-selected");
+          } else {
+            document.getElementById(project.title)!.classList.remove("project-card-selected")
+            document.getElementById(project.title)!.classList.add("project-card")
+          }
+        }
+      }
+    } 
+  }
+  }
+
 
