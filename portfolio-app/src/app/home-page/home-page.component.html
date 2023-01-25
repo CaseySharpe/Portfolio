@@ -1,0 +1,27 @@
+<div class="content">
+    <div id="about" class="content-wrapper">
+        <about-card></about-card>
+      </div>
+      <div id="education" class="content-wrapper">
+        <div><h1 class="content-header">** Education</h1></div>
+        <div class="card-container">
+          <education-card [education]="education"></education-card>
+        </div>
+        </div>
+      
+      <div id="experience" class="content-wrapper">
+        <div><h1 class="content-header">** Work Experience</h1></div>
+        <div class="card-container" *ngFor="let work of workExperience">
+          <experience-card [experience]="work"></experience-card>
+        </div>
+    </div>
+      
+      <div id="works" class="content-wrapper">
+        <div><h1 class="content-header">** Projects</h1></div>
+        <div class="card-container">   
+        <projects-home-view></projects-home-view>
+        </div>  
+    </div>  
+</div>
+
+

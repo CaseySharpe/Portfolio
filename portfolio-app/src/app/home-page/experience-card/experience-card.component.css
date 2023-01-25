@@ -1,0 +1,26 @@
+
+.experience-card-container {
+    margin: 10px;
+    padding: 5px;
+    font-family: 'Syne', sans-serif;
+}
+.title {
+    color:#3F51B5;
+    font-weight: 500;
+    font-family: 'Syne', sans-serif;
+}
+.chip-list {
+    margin: 5px;
+}
+.chip-list-wrapper {
+    margin-left: 10px;
+    display: flex;  
+}
+.chip{
+    background-color: #445bda71 !important;
+}
+.image-psu {
+    max-width: 120px;
+    margin: -30px;
+}
+

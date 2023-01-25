@@ -1,0 +1,17 @@
+.about-container{
+    width: 100%
+    
+}
+.heading {
+    font-family: 'Syne', sans-serif;
+    font-size: 115px;
+    margin-left: 20px;
+    color: #3F51B5;
+}
+.about-blurb {
+    font-family: 'Syne', sans-serif;
+    font-size: 25px;
+    margin-left: 40px;
+    max-width: 60%;
+    color: #3F51B5;
+}

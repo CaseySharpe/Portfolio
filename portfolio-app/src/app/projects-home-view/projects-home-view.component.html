@@ -1,0 +1,46 @@
+<div class="project-content">
+
+
+<div class="skills-list-wrapper">
+    <mat-chip-listbox
+    class="skills-list"
+    *ngFor="let enum of Skill | keyvalue">
+        <mat-chip-option (selectionChange)="OnChange($event)" color="accent" class="skills-chip">{{ enum.value }}</mat-chip-option>
+    </mat-chip-listbox>
+</div>
+
+<div class="card-holder">
+    <span *ngFor="let project of projects">
+        <mat-card [id]="project.title" class="project-card">
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title class="title"> {{ project.title }} </mat-card-title>
+                <mat-card-subtitle> {{ project.subtitle }} </mat-card-subtitle>
+              </mat-card-title-group>
+            </mat-card-header>
+            <div class="chip-list-wrapper">
+                <mat-chip-set
+                class="chip-list"
+                *ngFor="let skill of project.skills">
+                    <mat-chip class="chip">{{ skill }}</mat-chip>
+                </mat-chip-set>
+            </div>
+             
+        
+            <mat-card-content>
+                {{ project.description }}
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary"
+                [disabled]="!project.repoLink">GitHub</button>
+                <button class="arrow" mat-icon-button>
+                    <mat-icon>arrow_forward</mat-icon>
+                  </button>
+            </mat-card-actions>
+          </mat-card>
+    </span>
+</div> 
+        
+</div>
+
+

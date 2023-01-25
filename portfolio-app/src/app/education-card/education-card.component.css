@@ -1,0 +1,17 @@
+.education-card-container {
+    margin: 18px;
+    padding: 5px;
+    font-family: 'Syne', sans-serif;
+ 
+}
+.title {
+    color:#3F51B5;
+    font-weight: 500;
+    font-family: 'Syne', sans-serif;
+}
+.image-psu {
+    max-width: 120px;
+    margin: -20px;
+    margin-top: -30px;
+    margin-left: -30px;
+}
