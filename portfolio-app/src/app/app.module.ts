@@ -19,6 +19,7 @@ import { ProjectPageComponent } from './project-page/project-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { AppRoutingModule } from './app-routing.module';
     EducationCardComponent,
     ProjectsCardComponent,
     ProjectPageComponent,
-    HomePageComponent
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatMenuModule,
     MatTooltipModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

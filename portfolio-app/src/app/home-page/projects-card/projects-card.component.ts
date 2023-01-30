@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { DataService } from 'src/app/data.service';
 import { Project, Skill } from '../../core/portfolioObj.model';
 
 @Component({
@@ -6,44 +8,24 @@ import { Project, Skill } from '../../core/portfolioObj.model';
   templateUrl: './projects-card.component.html',
   styleUrls: ['./projects-card.component.css']
 })
-export class ProjectsCardComponent {
+export class ProjectsCardComponent implements OnInit{
   public Skill = Skill;
-
+  projects!: Observable<Project[]>;
   selectedChips = 0;
   maxSelectionReached = false;
 
 
-  projects: Project[] = [{
-    title: 'Traffic App',
-    subtitle: 'Sample Subtitle',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit quis nostrud exercitation ullamco',
-    skills: [Skill.Java],
-    repoLink: 'sdle'
-  },
-  {
-    title: 'Traffic App1',
-    subtitle: 'Sample Subtitle',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit quis nostrud exercitation ullamco',
-    skills: [Skill.Python]
-  },
-  {
-    title: 'Traffic App2',
-    subtitle: 'Sample Subtitle',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit quis nostrud exercitation ullamco',
-    skills: [Skill.Python, Skill.SQL],
-    repoLink: 'sdle'
-  },
-  {
-    title: 'Traffic App3',
-    subtitle: 'Sample Subtitle',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit quis nostrud exercitation ullamco',
-    skills: [Skill.CSS, Skill.HTML]
-  }]
+  
 
-  constructor(){
+  constructor(private dataService: DataService){
   }
 
   
+  gotoRepoLink(project: Project){
+    if(project.repoLink){
+      window.open(project.repoLink, "_blank")
+    }
+  }
 
   OnChange(event: any) {
     event.selected ? this.selectedChips++ :  this.selectedChips--
@@ -51,17 +33,23 @@ export class ProjectsCardComponent {
     if(this.selectedChips >= 4){
       event.source.deselect();
     } else if (this.selectedChips <= 3){
-      for(let project of this.projects){
-        if (project.skills.includes(event.source.value as Skill)){
+      this.projects.pipe(map((projects) => {
+        projects.map((project) => {
+          if (project.skills.includes(event.source.value as Skill)){
           if(event.selected){
             document.getElementById(project.title)!.classList.add("project-card-selected");
           } else {
             document.getElementById(project.title)!.classList.remove("project-card-selected")
             document.getElementById(project.title)!.classList.add("project-card")
           }
-        }
-      }
+        }})
+        
+      }))
     } 
+  }
+
+  ngOnInit() {
+    this.projects = this.dataService.getProjects();
   }
   }
 

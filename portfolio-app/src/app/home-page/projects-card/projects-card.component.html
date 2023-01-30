@@ -1,5 +1,6 @@
-
-<div class="skills-list-wrapper">
+<!-- 
+//THIS IS THE CHIPLIST SECTION (TO BE DEPLOYED WHEN MORE PROJECTS ARE ADDED)
+    <div class="skills-list-wrapper">
     <mat-chip-listbox
     class="skills-list"
     *ngFor="let enum of Skill | keyvalue">
@@ -7,9 +8,11 @@
     </mat-chip-listbox>
 </div>
 <div class="project-content">
+-->
+
 <div class="card-holder">
-    <span *ngFor="let project of projects">
-        <mat-card [id]="project.title" class="project-card">
+    <span *ngFor="let project of projects | async">
+        <mat-card [id]="project.title" class="project-card" >
             <mat-card-header>
               <mat-card-title-group>
                 <mat-card-title class="title"> {{ project.title }} </mat-card-title>
@@ -28,13 +31,15 @@
             </mat-card-content>
             <mat-card-actions>
                 <span [matTooltip]="!project.repoLink ? 'No Github link available for this project' : ''">
-                <button mat-raised-button 
+                <button 
+                mat-raised-button
                 color="primary"
-                [disabled]="!project.repoLink">
-                
+                [disabled]="!project.repoLink"
+                (click)="gotoRepoLink(project)">
                     GitHub
                 </button></span>
-                <button class="arrow" mat-icon-button>
+                <span class="example-spacer"></span>
+                <button class="arrow" mat-icon-button routerLink="/projects/{{ project.title }}">
                     <mat-icon>arrow_forward</mat-icon>
                   </button>
             </mat-card-actions>
@@ -42,6 +47,6 @@
     </span>
 </div> 
         
-</div>
+
 
 

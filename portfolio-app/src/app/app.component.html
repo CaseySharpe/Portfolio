@@ -1,19 +1,4 @@
 <header class="header">
-  <mat-toolbar class="toolbar">
-    <span class="example-spacer"></span>
-    <button mat-button color="primary" routerLink="/:about">Home</button>
-    <button mat-button color="primary"  routerLink="/:education">Education</button>
-    <button mat-button color="primary"  routerLink="/:experience">Experience</button>
-    <button mat-button color="primary"  routerLink="/:works">Projects</button>
-    <button class="menu" mat-icon-button color="primary" matTooltip="View specific projects" [matMenuTriggerFor]="worksMenu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-<mat-menu #worksMenu="matMenu" xPosition="before">
-  <div *ngFor="let project of projects">
-    <button mat-menu-item routerLink="projects/{{ project.title }}">{{project.title}}</button>
-</div>
-</mat-menu>
-  </mat-toolbar>
 </header>
 <div class="content">
   <router-outlet></router-outlet>

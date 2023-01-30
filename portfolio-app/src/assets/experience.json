@@ -1,0 +1,24 @@
+[
+    {
+    "title": "Margaret Hamilton Distinguished Intern",
+    "jobDescription": "Pennsylvania State University IT",
+    "startingDate": "April 2022",
+    "endDate": "May 2023",
+    "description": "Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.",
+    "skills": ["Angular", "CSS", "HTML", "TypeScript"]
+  }, {
+    "title": "Assistant Student Director of IST Learning Assistant Program",
+    "jobDescription": "Pennsylvania State University",
+    "startingDate": "March 2022",
+    "endDate": "Present",
+    "description": "Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.",
+    "skills": []
+  }, {
+    "title": "Information Sciences and Technology Learning Assistant",
+    "jobDescription": "Pennsylvania State University",
+    "startingDate": "January 2022",
+    "endDate": "January 2023",
+    "description": "Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.",
+    "skills": ["Java"]
+  }
+]

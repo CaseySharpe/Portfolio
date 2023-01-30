@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Education, Experience, Project, Skill } from '../core/portfolioObj.model';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'home-page',
@@ -9,56 +11,32 @@ import { Education, Experience, Project, Skill } from '../core/portfolioObj.mode
 })
 export class HomePageComponent implements AfterViewInit{
   // TODO fix this language
-  workExperience: Experience[] = [{
-    title: 'Margaret Hamilton Distinguished Intern',
-    jobDescription: 'Pennsylvania State University IT',
-    startingDate: 'April 2022',
-    endDate: 'May 2023',
-    description: 'Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.',
-    skills: [Skill.Angular, Skill.CSS, Skill.HTML, Skill.TypeScript]
-  }, {
-    title: 'Assistant Student Director of IST Learning Assistant Program',
-    jobDescription: 'Pennsylvania State University',
-    startingDate: 'March 2022',
-    endDate: 'Present',
-    description: 'Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.',
-    skills: []
-  }, {
-    title: 'Information Sciences and Technology Learning Assistant',
-    jobDescription: 'Pennsylvania State University',
-    startingDate: 'January 2022',
-    endDate: 'January 2023',
-    description: 'Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.',
-    skills: [Skill.Java]
-  }
-]
+  workExperience!: Observable<Experience[]>;
+  projects!: Observable<Project[]>;
 
-projects: Project[] = [{
-  title: 'Traffic App',
-  subtitle: 'Sample Subtitle',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit quis nostrud exercitation ullamco',
-  skills: [Skill.Java],
-  repoLink: 'sdle'
-},
-{
-  title: 'Traffic App1',
-  subtitle: 'Sample Subtitle',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit quis nostrud exercitation ullamco',
-  skills: [Skill.Python]
-},
-{
-  title: 'Traffic App2',
-  subtitle: 'Sample Subtitle',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit quis nostrud exercitation ullamco',
-  skills: [Skill.Python, Skill.SQL],
-  repoLink: 'sdle'
-},
-{
-  title: 'Traffic App3',
-  subtitle: 'Sample Subtitle',
-  description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit quis nostrud exercitation ullamco',
-  skills: [Skill.CSS, Skill.HTML]
-}]
+
+  // : Experience[] = [{
+  //   title: 'Margaret Hamilton Distinguished Intern',
+  //   jobDescription: 'Pennsylvania State University IT',
+  //   startingDate: 'April 2022',
+  //   endDate: 'May 2023',
+  //   description: 'Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.',
+  //   skills: [Skill.Angular, Skill.CSS, Skill.HTML, Skill.TypeScript]
+  // }, {
+  //   title: 'Assistant Student Director of IST Learning Assistant Program',
+  //   jobDescription: 'Pennsylvania State University',
+  //   startingDate: 'March 2022',
+  //   endDate: 'Present',
+  //   description: 'Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.',
+  //   skills: []
+  // }, {
+  //   title: 'Information Sciences and Technology Learning Assistant',
+  //   jobDescription: 'Pennsylvania State University',
+  //   startingDate: 'January 2022',
+  //   endDate: 'January 2023',
+  //   description: 'Learning coach and mentor for students learning Intermediate Object-Oriented Design and Software Applications (Java). Supporting instructors with teaching-related tasks. Responsible for hosting office hours, providing feedback on assignments, and assisting with grading.',
+  //   skills: [Skill.Java]
+  // }
 
 
 education: Education = {
@@ -70,8 +48,8 @@ education: Education = {
   activities: ''
 }
 
-constructor(private route: ActivatedRoute) {
- 
+constructor(private route: ActivatedRoute, private dataService: DataService) {
+  this.projects = this.dataService.getProjects();
 }
 
 
@@ -83,7 +61,13 @@ scrollIntoView(id: string){
     
 }
 
+gotoPortfolioRepo(){
+  window.open("https://github.com/CaseySharpe/Portfolio", "_blank")
+}
+
+// todo destroy this 
 ngAfterViewInit() {
+  this.workExperience = this.dataService.getExperience();
   this.route.params.subscribe(params => {
     if(params['id']){
       let id = params['id'].slice(1);

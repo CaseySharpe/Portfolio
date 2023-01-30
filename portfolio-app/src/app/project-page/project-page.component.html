@@ -1,1 +1,39 @@
-<p>slut</p>
+<mat-toolbar class="toolbar">
+    <button 
+    mat-stroked-button
+            color="primary"
+            (click)="gotoPortfolioRepo()">
+                View Site in GitHub
+            </button>
+    <span class="example-spacer"></span>
+    <button mat-button color="primary" routerLink="">Home</button>
+    <button class="menu" mat-icon-button color="primary" matTooltip="View specific projects" [matMenuTriggerFor]="worksMenu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+  <mat-menu #worksMenu="matMenu" xPosition="before">
+  <div *ngFor="let project of projects | async">
+    <button mat-menu-item routerLink="/projects/{{ project.title }}">{{project.title}}</button>
+  </div>
+  </mat-menu>
+  </mat-toolbar>
+<div class="container">
+    <div class="about-container">
+        <h1 class="heading">{{projectData.title}}</h1>
+        <span [matTooltip]="!projectData.repoLink ? 'No Github link available for this project' : ''">
+            <button 
+            mat-raised-button
+            color="primary"
+            [disabled]="!projectData.repoLink"
+            (click)="gotoRepoLink()">
+                View GitHub Repository
+            </button></span>
+        <p class="about-blurb">{{projectData.subtitle}} </p>
+        <p class="about-blurb">{{projectData.description}}</p>
+    </div>
+<div *ngIf="safeMediaLink">
+    <iframe id="iframe" class="iframe" [src]="safeMediaLink" allow='autoplay' title="TODO, make this an unlisted video to project reference"></iframe>
+</div>    
+    
+
+</div>
+

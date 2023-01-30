@@ -1,3 +1,22 @@
+.toolbar {
+    top: 0;
+  position: fixed;
+    opacity: 80%;
+    z-index: 1;
+  }
+  .project-blurb {
+    font-family: 'Syne', sans-serif;
+    font-size: 25px;
+    margin-left: 50px;
+    color: #3F51B5;
+}
+  .example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
 .content {
     display: inline;
 }
