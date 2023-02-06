@@ -16,7 +16,7 @@
         "mediaLink": "https://www.youtube.com/embed/yuWN8gtDofI?autoplay=1"
       },
       {
-        "title": "CinemaCache App",
+        "title": "Cinema Cache App",
         "subtitle": "Developed Fall 2022",
         "description": "CinemaCache app was created as a part of a course in Android Studio Development. The app allows users to randomly selects movies given a set of genre filters, view all movies, add movies to a watchlist, and review movies.",
         "skills": ["Java", "Android Developer"],
