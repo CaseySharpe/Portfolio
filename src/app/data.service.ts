@@ -22,7 +22,7 @@ export class DataService {
   getExperience() {
     return this.http.get<Experience[]>('/assets/experience.json');
   }
-
+  
   // getProjectDetails(details: string) {
   //   this.$projects = this.http.get<Project[]>('/assets/projects.json')
   //   this.$projects

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Education, Experience, Project, Skill } from '../core/portfolioObj.model';
 import { DataService } from '../data.service';
 
+
 @Component({
   selector: 'home-page',
   templateUrl: './home-page.component.html',
