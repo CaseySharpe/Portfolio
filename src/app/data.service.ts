@@ -16,11 +16,11 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getProjects() {
-    return this.http.get<Project[]>('/assets/projects.json');
+    return this.http.get<Project[]>('../../assets/projects.json');
   }
 
   getExperience() {
-    return this.http.get<Experience[]>('/assets/experience.json');
+    return this.http.get<Experience[]>('../../assets/experience.json');
   }
   
   // getProjectDetails(details: string) {
