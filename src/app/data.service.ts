@@ -15,12 +15,20 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
+  // Dev
+  //projectsUrl = "../../assets/projects.json";
+  //experienceUrl = "../../assets/experience.json";
+
+  // Prod
+  projectsUrl = "https://caseysharpe.github.io/Portfolio/assets/projects.json";
+  experienceUrl = "https://caseysharpe.github.io/Portfolio/assets/experience.json";
+
   getProjects() {
-    return this.http.get<Project[]>('../../assets/projects.json');
+    return this.http.get<Project[]>(this.projectsUrl);
   }
 
   getExperience() {
-    return this.http.get<Experience[]>('../../assets/experience.json');
+    return this.http.get<Experience[]>(this.experienceUrl);
   }
   
   // getProjectDetails(details: string) {
