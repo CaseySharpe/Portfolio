@@ -1,0 +1,24 @@
+[
+    {
+    "title": "Margaret Hamilton Distinguished Intern",
+    "jobDescription": "Pennsylvania State University IT",
+    "startingDate": "April 2022 - Present",
+    "endDate": "May 2023",
+    "description": "Specialized in Angular frontend development and collaborated on the maintenance and development of IT department tools. Attended daily standups, contributing to the Agile software development lifecycle, including requirement gathering, coding, testing, and deployment. Working with both university and industry professionals provided exposure to the software engineering industry.",
+    "skills": ["Angular", "CSS", "HTML", "TypeScript"]
+  }, {
+    "title": "Assistant Student Director of IST Learning Assistant Program",
+    "jobDescription": "Pennsylvania State University",
+    "startingDate": "March 2022 - Present",
+    "endDate": "Present",
+    "description": "Oversaw a team of roughly 175 undergraduate learning assistants and help teach a training course for new LAs. Responsible for program development, recruitment, training, and evaluation of the LAs. This experience has honed leadership and interpersonal skills and given a deeper understanding of the impact of academic support on student success.",
+    "skills": []
+  }, {
+    "title": "Information Sciences and Technology Learning Assistant",
+    "jobDescription": "Pennsylvania State University",
+    "startingDate": "January 2022 - January 2023",
+    "endDate": "January 2023",
+    "description": "Provided academic support to 35 students as a Learning Assistant for Principles of Object Oriented Programming in Java. Responsible for grading assignments, hosting office hours, and helping students understand complex concepts. This experience developed strong communication and problem-solving skills, as well as teaching and mentoring experience.",
+    "skills": ["Java"]
+  }
+]
