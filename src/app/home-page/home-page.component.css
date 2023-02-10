@@ -4,6 +4,9 @@
     opacity: 80%;
     z-index: 1;
   }
+.toolbar-button {
+  margin: 10px;
+}
   .project-blurb {
     font-family: 'Syne', sans-serif;
     font-size: 25px;
@@ -34,11 +37,12 @@
     margin-bottom: 5px;
  }
  .card-container {
-    display: flex;
-    justify-content: center;
-    padding-left: 5%;
-    padding-right: 5%;
-    max-height: fit-content;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+    margin: 75px;
+    column-gap: 20px;
+
 }
 
  

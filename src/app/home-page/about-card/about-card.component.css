@@ -1,6 +1,15 @@
 .about-container{
-    width: 100%
+    width: 100%;
+    height:auto;
     
+}
+.about-info{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    margin: 24px;
+    column-gap: 50px;
+    width: 100%;
 }
 .heading {
     font-family: 'Syne', sans-serif;
@@ -12,6 +21,25 @@
     font-family: 'Syne', sans-serif;
     font-size: 25px;
     margin-left: 40px;
-    max-width: 60%;
     color: #3F51B5;
 }
+
+.headshot-wrapper img{
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    max-width: 300px;
+    height: auto;
+    position:relative;
+    overflow: hidden;
+    border-radius: 50%;  
+}
+
+.headshot-wrapper{
+    height: auto;
+    position: relative;
+    overflow: hidden; 
+}
+
+
+ 

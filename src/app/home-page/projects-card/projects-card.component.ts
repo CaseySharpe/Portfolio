@@ -14,9 +14,6 @@ export class ProjectsCardComponent implements OnInit{
   selectedChips = 0;
   maxSelectionReached = false;
 
-
-  
-
   constructor(private dataService: DataService){
   }
 
@@ -48,9 +45,14 @@ export class ProjectsCardComponent implements OnInit{
     } 
   }
 
+  getShorterDescription(description: string){
+    let descriptionArray = description.split(" ").slice(0, 30);
+    return descriptionArray.join(" ") + "...";
+  }
+
   ngOnInit() {
     this.projects = this.dataService.getProjects();
   }
-  }
+}
 
 

@@ -27,7 +27,7 @@
                 </mat-chip-set>
             </div>
             <mat-card-content>
-                {{ project.description }}
+                {{ getShorterDescription(project.description) }}
             </mat-card-content>
             <mat-card-actions>
                 <span [matTooltip]="!project.repoLink ? 'No Github link available for this project' : ''">

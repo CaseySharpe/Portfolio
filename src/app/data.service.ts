@@ -23,13 +23,15 @@ export class DataService {
   projectsUrl = "https://caseysharpe.github.io/Portfolio/assets/projects.json";
   experienceUrl = "https://caseysharpe.github.io/Portfolio/assets/experience.json";
 
+
   getProjects() {
-    return this.http.get<Project[]>(this.projectsUrl);
+    return this.http.get<Project[]>("https://caseysharpe.github.io/Portfolio/assets/projects.json");
   }
 
   getExperience() {
-    return this.http.get<Experience[]>(this.experienceUrl);
+    return this.http.get<Experience[]>("https://caseysharpe.github.io/Portfolio/assets/experience.json");
   }
+
   
   // getProjectDetails(details: string) {
   //   this.$projects = this.http.get<Project[]>('/assets/projects.json')

@@ -1,3 +1,10 @@
+.card-container {
+    display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+    margin: 75px;
+    column-gap: 20px;
+}
 .education-card-container {
     margin: 18px;
     padding: 5px;
@@ -9,9 +16,23 @@
     font-weight: 500;
     font-family: 'Syne', sans-serif;
 }
+.content-emphasis {
+    color:#3F51B5;
+    font-weight: 500;
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+}
+
 .image-psu {
     max-width: 120px;
     margin: -20px;
     margin-top: -30px;
     margin-left: -30px;
+}
+
+.image-hs {
+    max-width: 60px;
+    margin: 15px;
+    margin-top: 5px;
+    margin-left: 5px;
 }

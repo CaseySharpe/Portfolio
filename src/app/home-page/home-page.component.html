@@ -1,10 +1,17 @@
 <mat-toolbar class="toolbar">
   <button 
+    class="toolbar-button"
     mat-stroked-button
             color="primary"
             (click)="gotoPortfolioRepo()">
                 View Site in GitHub
             </button>
+  <button 
+     mat-stroked-button
+      color="primary"
+      (click)="openResume()">
+      View Resume
+                    </button>          
   <span class="example-spacer"></span>
   <button mat-button color="primary" routerLink="/:about">Home</button>
   <button mat-button color="primary"  routerLink="/:education">Education</button>
@@ -25,15 +32,16 @@
       </div>
       <div id="education" class="content-wrapper">
         <div><h1 class="content-header">** Education</h1></div>
-        <div class="card-container">
-          <education-card [education]="education"></education-card>
-        </div>
+          <education-card></education-card>
         </div>
       
       <div id="experience" class="content-wrapper">
         <div><h1 class="content-header">** Work Experience</h1></div>
-        <div class="card-container" *ngFor="let work of workExperience | async">
-          <experience-card [experience]="work"></experience-card>
+        <div class="card-container">
+          <div *ngFor="let work of workExperience | async">
+            <experience-card [experience]="work"></experience-card>
+          </div>
+       
         </div>
     </div>
       
